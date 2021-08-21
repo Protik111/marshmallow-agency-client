@@ -3,6 +3,7 @@ import Navbar from './Navbar/Navbar';
 import Header from './Header/Header';
 import Services from './Services/Services';
 import Workers from './Workers/Workers';
+import Slider from './Slider/Slider';
 const Home = () => {
     return (
         <div>
@@ -10,6 +11,7 @@ const Home = () => {
             <Header/>
             <Services></Services>
             <Workers></Workers>
+            <Slider></Slider>
         </div>
     );
 };

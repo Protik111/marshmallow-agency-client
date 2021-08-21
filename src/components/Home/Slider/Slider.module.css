@@ -1,0 +1,9 @@
+.slider img {
+    width: 250px;
+    height: 320px;
+    border-radius: 15px;
+    transition: all .5s ease-in-out;
+}
+.slider img:hover {
+    transform: scale(1.1);
+}
