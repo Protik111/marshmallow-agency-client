@@ -1,9 +1,10 @@
 import React from 'react';
 import logo from '../../../images/logos/logo-light.svg';
 import styles from '../Navbar/Navbar.module.css'
+
 const Navbar = () => {
     return (
-        <div>
+        <div className={styles.overlay}>
             <nav>
             <div className={styles.img_box}>
                 <img src={logo} alt=""/>

@@ -1,0 +1,58 @@
+.header_text {
+    margin-top: 100px;
+    color: black;
+    font-weight: 400;
+    /* animation: TextUp 5s ease infinite; */
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+.header_text p {
+    color: #A2A6BB;
+    font-weight: 600;
+}
+.idea_image{
+    /* animation: imageRotate 5s ease infinite; */
+}
+.btn_learn{
+    background-color: #0085F2;
+    padding: 11px 25px;
+    border-radius: 20px;
+    color: #F8FCFF;
+    border: none;
+    cursor: pointer;
+}
+.btn_learn:hover {
+    background-color: #0770c7;
+}
+.tick_container{
+    color: #A8ACBF;
+    font-weight: 500;
+}
+.tick1 p{
+    display: inline-block;
+}
+/* animations */
+
+@keyframes TextUp {
+    0% { 
+        transform: translateY(+100px);
+        opacity: 0;
+    }
+    /* 50% { 
+        transform: scale(0.6);
+    } */
+    100% { 
+        transform: translateY(0);
+    }
+}
+
+@keyframes imageRotate {
+    0% { 
+        transform: rotateY(-90deg);
+    }
+    /* 50% { 
+        transform: scale(0.6);
+    } */
+    100% { 
+        transform: rotateY(0);;
+    }
+}
