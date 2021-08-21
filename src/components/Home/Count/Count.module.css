@@ -1,0 +1,17 @@
+.client {
+    display: flex;
+    /* align-items: center; */
+}
+.client_status{
+    margin-left: 50px;
+}
+/* .client_container{
+    display: flex;
+} */
+/* 
+@media (min-width: 768px) {
+    .client{
+        flex-direction: column;
+        justify-content: center;
+    }
+} */

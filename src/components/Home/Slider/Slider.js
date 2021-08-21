@@ -29,10 +29,16 @@ SwiperCore.use([Pagination]);
 
 const Slider = () => {
     useEffect(() => {
-        AOS.init({ duration: 2000 });
+        AOS.init({ duration: 1000 });
     }, []);
     return (
         <div className="mt-5 mb-5" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+            <div className="row d-flex justify-content-between">
+                <h1 className="col-md-5 offset-md-1 mt-md-5 mb-md-5">Lets See Our Latest Projects</h1>
+                <div className={`${styles.see_more} col-md-2 offset-md-4 m-md-5`}>
+                <button type="button">View More</button>
+                </div>
+            </div>
             <Swiper slidesPerView={1} spaceBetween={20} pagination={{
                 "clickable": true
             }} breakpoints={{

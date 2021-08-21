@@ -12,7 +12,7 @@ const Workers = () => {
     return (
         <div className={`${styles.header} container-fluid mb-5`}>
             <div className="row">
-                <div data-aos="fade-up" data-aos-duration="2000" className={`${styles.header_text} col-md-5 offset-md-1 offset-sm-1`}>
+                <div data-aos="fade-up" data-aos-duration="1000" className={`${styles.header_text} col-md-5 offset-md-1 offset-sm-1`}>
                     <h4>Our Work Process</h4>
                     <h1>Discover New Idea With Us!</h1>
                     <h5>Imagination will take us everywhere</h5>

@@ -4,6 +4,8 @@ import Header from './Header/Header';
 import Services from './Services/Services';
 import Workers from './Workers/Workers';
 import Slider from './Slider/Slider';
+import Count from './Count/Count';
+
 const Home = () => {
     return (
         <div>
@@ -12,6 +14,7 @@ const Home = () => {
             <Services></Services>
             <Workers></Workers>
             <Slider></Slider>
+            <Count></Count>
         </div>
     );
 };

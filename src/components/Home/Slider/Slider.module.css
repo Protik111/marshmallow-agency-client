@@ -7,3 +7,18 @@
 .slider img:hover {
     transform: scale(1.1);
 }
+.see_more button{
+    padding: 8px 30px;
+    border: 1px solid #3C37F1;
+    border-radius: 35px;
+    /* border: none; */
+    color: #3C37F1;
+    font-size: 17px;
+    font-weight: 500;
+    background-color: #fff;
+    transition: all .5s ease-in-out;
+}
+.see_more button:hover {
+    background-color: #3C37F1;
+    color: #fff;
+}
