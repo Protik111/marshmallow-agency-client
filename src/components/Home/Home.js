@@ -9,6 +9,7 @@ import Customer from './Customer/Customer';
 import Partners from './Partners/Partners';
 import Plan from './Plan/Plan';
 import Cards from './Cards/Cards';
+import Contact from './Contact/Contact';
 
 const Home = () => {
     return (
@@ -23,7 +24,7 @@ const Home = () => {
             <Partners></Partners>
             <Plan></Plan>
             <Cards></Cards>
-            <Header></Header>
+            <Contact></Contact>
         </div>
     );
 };

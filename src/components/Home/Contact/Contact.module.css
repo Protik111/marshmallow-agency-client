@@ -1,0 +1,50 @@
+.form_label{
+    display: block;
+    margin: 5px;
+    font-size: 18px;
+}
+.contact_input{
+    display: flex;
+}
+.form_input{
+    width: 250px;
+    transition: all 1s ease;
+}
+.form_input_message{
+    width: 550px;
+    transition: all 1s ease;
+}
+.form_input_message:focus,
+.form_input:focus {
+    outline: none;
+    border: 1px solid #3E3EF2;
+}
+.see_more button{
+    padding: 8px 30px;
+    border: 1px solid #3C37F1;
+    border-radius: 35px;
+    /* border: none; */
+    color: #3C37F1;
+    font-size: 17px;
+    font-weight: 500;
+    background-color: #fff;
+    transition: all .5s ease-in-out;
+}
+.see_more button:hover {
+    background-color: #3C37F1;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .contact_input{
+        flex-direction: column;
+        align-items: center;
+    }
+    .form_input_message{
+        width: 250px;
+        align-items: center;
+    }
+    /* .see_more button {
+        align-items: center;
+    } */
+}
