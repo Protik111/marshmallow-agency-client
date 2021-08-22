@@ -6,6 +6,7 @@ import Workers from './Workers/Workers';
 import Slider from './Slider/Slider';
 import Count from './Count/Count';
 import Customer from './Customer/Customer';
+import Partners from './Partners/Partners';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <Slider></Slider>
             <Count></Count>
             <Customer></Customer>
+            <Partners></Partners>
         </div>
     );
 };
