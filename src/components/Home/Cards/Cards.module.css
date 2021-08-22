@@ -1,0 +1,31 @@
+.card_container img{
+    width: 68px;
+    height: 90px;
+    margin-top: 10px;
+}
+.card_container:hover {
+    background-color: #67BBFF;
+    transition: all 0.3s ease-in-out;
+}
+.card_container:hover .card_text {
+    color: #fff;
+}
+.see_more button{
+    padding: 8px 30px;
+    border: 1px solid #3C37F1;
+    border-radius: 35px;
+    /* border: none; */
+    color: #3C37F1;
+    font-size: 17px;
+    font-weight: 500;
+    background-color: #fff;
+    transition: all .5s ease-in-out;
+}
+.see_more button:hover {
+    background-color: #3C37F1;
+    color: #fff;
+}
+.card_price {
+    color: #3C37F1;
+    font-size: 55px;
+}

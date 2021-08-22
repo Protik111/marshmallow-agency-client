@@ -7,6 +7,8 @@ import Slider from './Slider/Slider';
 import Count from './Count/Count';
 import Customer from './Customer/Customer';
 import Partners from './Partners/Partners';
+import Plan from './Plan/Plan';
+import Cards from './Cards/Cards';
 
 const Home = () => {
     return (
@@ -19,6 +21,9 @@ const Home = () => {
             <Count></Count>
             <Customer></Customer>
             <Partners></Partners>
+            <Plan></Plan>
+            <Cards></Cards>
+            <Header></Header>
         </div>
     );
 };
