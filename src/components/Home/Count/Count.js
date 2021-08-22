@@ -19,7 +19,7 @@ const Count = () => {
         <div className={`${styles.client_container} container mb-5 mt-5`}>
             <div className="row">
                 <div data-aos="fade-up" className={`${styles.client} col-md-3 justify-content-center`}>
-                    <div>
+                    <div className={styles.count_Images}>
                         <img className="mt-3" src={satisfiedImage} alt="" />
                     </div>
                     <div className="client_status m-1">
@@ -43,7 +43,7 @@ const Count = () => {
                 </div>
 
                 <div data-aos="fade-down" className={`${styles.client} col-md-3 justify-content-center`}>
-                    <div>
+                    <div className={styles.count_Images}>
                         <img className="mt-3" src={finishImage} alt="" />
                     </div>
                     <div className="client_status m-1">
@@ -65,7 +65,7 @@ const Count = () => {
                 </div>
 
                 <div data-aos="fade-up" className={`${styles.client} col-md-3 justify-content-center`}>
-                    <div>
+                    <div className={styles.count_Images}>
                         <img className="mt-3" src={teamImage} alt="" />
                     </div>
                     <div className="client_status m-1">
@@ -87,7 +87,7 @@ const Count = () => {
                 </div>
 
                 <div data-aos="fade-down" className={`${styles.client} col-md-3 justify-content-center`}>
-                    <div>
+                    <div className={styles.count_Images}>
                         <img className="mt-3" src={blogImage} alt="" />
                     </div>
                     <div className="client_status m-1">

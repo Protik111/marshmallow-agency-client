@@ -1,0 +1,19 @@
+.tesimonial_container{
+    background-image: url(../../../images/logos/testimonial-bg.png);
+}
+.slider_item {
+    display: flex;
+}
+.slider_item img{
+    border-radius: 15px;
+    width: 120px;
+    height: 120px;
+}
+.heading{
+    color: #fff;
+    font-weight: bold;
+}
+.reviews_container{
+    background-color: #fff;
+    border-radius: 10px;
+}

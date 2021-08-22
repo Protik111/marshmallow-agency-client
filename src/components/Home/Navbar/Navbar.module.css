@@ -3,7 +3,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: #3C37F1;
-    width: 100%;
+    max-width: 100%;
     height: 100px;
     padding: 0 20px 0 100px;
     /* position: fixed; */

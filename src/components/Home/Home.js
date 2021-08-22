@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Navbar from './Navbar/Navbar';
 import Header from './Header/Header';
 import Services from './Services/Services';
 import Workers from './Workers/Workers';
 import Slider from './Slider/Slider';
 import Count from './Count/Count';
+import Customer from './Customer/Customer';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <Workers></Workers>
             <Slider></Slider>
             <Count></Count>
+            <Customer></Customer>
         </div>
     );
 };
