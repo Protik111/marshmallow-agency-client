@@ -14,7 +14,7 @@ const Header = () => {
         });
     }, []);
     return (
-        <div className={`${styles.header} container-fluid`}>
+        <div className={`${styles.header} container-fluid`} id="home">
             <div className="row">
                 <div data-aos="zoom-in" className={`${styles.header_text} col-md-5 offset-md-1 offset-sm-1`}>
                     <h1>We Help Power Millions of Business in 100+

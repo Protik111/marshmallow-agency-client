@@ -16,7 +16,7 @@ const Count = () => {
         AOS.init({ duration: 2000 });
     }, []);
     return (
-        <div className={`${styles.client_container} container mb-5 mt-5`}>
+        <div className={`${styles.client_container} container mb-5 mt-5`} id="testimonials">
             <div className="row">
                 <div data-aos="fade-up" className={`${styles.client} col-md-3 justify-content-center`}>
                     <div className={styles.count_Images}>

@@ -1,5 +1,4 @@
 import Home from './components/Home/Home';
-import { useState } from 'react';
 import './assets/css/global.css';
 
 

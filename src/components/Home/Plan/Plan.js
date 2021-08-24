@@ -59,7 +59,7 @@ const Plan = () => {
     return (
         <div className="container-fluid mt-5 mb-5">
             <div className="row d-flex justify-content-between">
-                <h1 data-aos="fade-right" className="col-md-5 offset-md-1 mt-md-4 mb-md-5">Checkout Pricing Plan</h1>
+                <h1 data-aos="fade-right" className="col-md-5 mt-md-4 mb-md-5 text-center">Checkout Pricing Plan</h1>
                 <div data-aos="fade-left" className="text-center col-md-2 offset-md-4 mt-md-5 mb-md-5">
                     <Typography component="div">
                         <Grid component="label" container alignItems="center" spacing={1}>

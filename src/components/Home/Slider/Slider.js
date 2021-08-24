@@ -32,7 +32,7 @@ const Slider = () => {
         AOS.init({ duration: 1000 });
     }, []);
     return (
-        <div className="mt-5 mb-5" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+        <div id="projects" className="mt-5 mb-5" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
             <div className="row d-flex justify-content-between">
                 <h1 className="col-md-5 offset-md-1 mt-md-5 mb-md-5 text-center">Lets See Our Latest Projects</h1>
                 <div className={`${styles.see_more} text-center col-md-2 offset-md-4 m-md-5`}>

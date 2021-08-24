@@ -10,6 +10,8 @@ import Partners from './Partners/Partners';
 import Plan from './Plan/Plan';
 import Cards from './Cards/Cards';
 import Contact from './Contact/Contact';
+import Footer from './Footer/Footer';
+import Scrollup from './Scrollup/Scrollup';
 
 const Home = () => {
     return (
@@ -25,6 +27,8 @@ const Home = () => {
             <Plan></Plan>
             <Cards></Cards>
             <Contact></Contact>
+            <Footer></Footer>
+            <Scrollup></Scrollup>
         </div>
     );
 };

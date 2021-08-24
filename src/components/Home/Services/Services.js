@@ -5,7 +5,7 @@ import styles from './Services.module.css';
 
 const Services = () => {
     return (
-        <div className="container-fluid row">
+        <div className="container-fluid row" id="services">
             <div className="offset-md-1 offset-sm-1 mt-5">
                 <h5>We're Offering</h5>
                 <h1>Creative Digital Agency</h1>

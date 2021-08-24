@@ -10,7 +10,7 @@ const Workers = () => {
         AOS.init({ duration: 1000 });
     }, []);
     return (
-        <div className={`${styles.header} container-fluid mb-5`}>
+        <div className={`${styles.header} container-fluid mb-5`} id="about">
             <div className="row">
                 <div data-aos="fade-up" data-aos-duration="1000" className={`${styles.header_text} col-md-5 offset-md-1 offset-sm-1`}>
                     <h4>Our Work Process</h4>

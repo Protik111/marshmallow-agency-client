@@ -1,0 +1,16 @@
+.footer {
+    background-image: url(../../../images/logos/footer-bg.png);
+    background-size: cover;
+    width: 100%;
+    color: #fff;
+}
+.icons {
+    font-size: 30px;
+    color: #fff;
+}
+.icon_item{
+    margin-left: 10px;
+}
+.footer_text {
+    display: flex;
+}

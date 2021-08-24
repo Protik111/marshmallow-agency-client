@@ -14,7 +14,7 @@ const Cards = () => {
         AOS.init({ duration: 1000 });
     }, []);
     return (
-        <div className="container mt-5 mb-5">
+        <div className="container mt-5 mb-5" id="plans">
             <div data-aos="fade-up" class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                     <div class={`${styles.card_container} card text-center`}>
