@@ -13,6 +13,20 @@ html {
     /* font-size: 62.5%; */
 }
 body {
-    width:100%;
+    max-width:100%;
     overflow-x:hidden;
+}
+.common_button{
+    padding: 8px 30px;
+    border: 1px solid #3C37F1;
+    border-radius: 35px;
+    /* border: none; */
+    color: #3C37F1;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all .3s ease;
+}
+.common_button:hover {
+    background-color: #3C37F1;
+    color: #fff;
 }

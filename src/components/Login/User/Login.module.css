@@ -2,4 +2,69 @@
     background-image: linear-gradient(to right bottom, #7875e0, #A52EFA);
     height: 100vh;
     width: 100%;
+    position: relative;
+}
+.sign_in_box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 100px 130px;
+    border-radius: 8px;
+    box-shadow: 3px 5px 20px gray;
+}
+.sign_in_button{
+    padding: 9px 22px;
+    outline: none;
+    border: 1px solid #3C37F1;
+    border-radius: 25px;
+    box-shadow: 5px 3px 10px gray;
+    transition: all 0.3s ease;
+}
+.sign_in_button:hover{
+    background-color: #3C37F1;
+    color: white;
+}
+.google_icon{
+    font-size: 25px;
+    margin-right: 5px;
+}
+.signin_logo{
+    position: absolute;
+    top: 40px;
+}
+.form_input{
+    width: 250px;
+    padding: 9px 0;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+
+}
+.form_input:focus{
+    outline: none;
+    border-bottom: 1px solid #3C37F1;
+}
+.checkbox{
+    display: none;
+}
+.signin_check{
+    display: flex;
+    justify-content: space-evenly;
+}
+.label_text{
+    color: #3C37F1;
+}
+.label_text:hover{
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+    .sign_in_box {
+        padding: 100px 70px;
+    }
 }
