@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../../App';
+import DashboardHeader from '../DashboardHeader/DashboardHeader';
+import UserOrder from '../UserOrder/UserOrder';
 
 const UserDashboard = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     return (
         <div>
-            <h2>This is Dashboard{loggedInUser.displayName}</h2>
+            <DashboardHeader></DashboardHeader>
+            <UserOrder></UserOrder>
         </div>
     );
 };

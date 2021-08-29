@@ -5,7 +5,7 @@ import styles from '../Navbar/Navbar.module.css'
 const Navbar = () => {
     return (
         <div className={styles.overlay}>
-            <nav>
+            <nav className={styles.nav}>
             <div className={styles.img_box}>
                 <img src={logo} alt=""/>
             </div>
