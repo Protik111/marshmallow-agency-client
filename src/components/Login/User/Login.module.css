@@ -1,17 +1,17 @@
 .login_container{
     background-image: linear-gradient(to right bottom, #7875e0, #A52EFA);
     height: 100vh;
-    width: 100%;
+    max-width: 100%;
     position: relative;
 }
 .sign_in_box{
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-right: -50%;
+    /* margin-right: -50%; */
     transform: translate(-50%, -50%);
     background-color: #fff;
-    padding: 100px 130px;
+    padding: 88px 130px;
     border-radius: 8px;
     box-shadow: 3px 5px 20px gray;
 }
@@ -32,8 +32,9 @@
     margin-right: 5px;
 }
 .signin_logo{
-    position: absolute;
+    position: inherit;
     top: 40px;
+    left: 27%;
 }
 .form_input{
     width: 250px;
@@ -60,6 +61,10 @@
 .label_text:hover{
     font-weight: 500;
     cursor: pointer;
+}
+.error_text{
+    font-size: 13px;
+    color: red;
 }
 
 /* media queries */
