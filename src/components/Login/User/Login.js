@@ -27,6 +27,7 @@ const Login = () => {
     const [error2, setError2] = useState('');
     const [errors, setErrors] = useState('');
     const [errorSignup, setErrorSignup] = useState('');
+    const [passStatus, setPassStatus] = useState('');
 
 
 
@@ -110,6 +111,9 @@ const Login = () => {
                 // console.log(errorMessage);
                 // ..
             });
+        }
+        if(newUser && user.password != user.password2){
+            setPassStatus(`Password didn't matches!`);
         }
 
         //sign in with email and password
@@ -216,11 +220,17 @@ const Login = () => {
                         <div className="text-center mt-2 mb-2">
                             <input className="common_button" type="submit" value={newUser ? 'Sign Up' : 'Sign In'} />
                         </div>
+
+                        {/* showing errors */}
+
                         {!newUser && <p className={`${styles.error_text}`}>
                             {errors}
                         </p>}
                         {newUser && <p className={`${styles.error_text}`}>
                             {errorSignup}
+                        </p>}
+                        {newUser && <p className={`${styles.error_text}`}>
+                            {passStatus}
                         </p>}
                     </form>
                 </div>

@@ -1,5 +1,7 @@
 .service_item {
     animation: itemUp 3s ease infinite;
+    border: 0.5px solid #6F99C1;
+    border-radius: 7px;
 }
 .service_item:hover{
     background-color: #6F99C1;
