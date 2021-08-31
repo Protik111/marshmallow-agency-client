@@ -19,6 +19,23 @@
     width: 100%;
     margin: 30px auto;
 }
+.log_out_btn{
+    padding: 5px 22px;
+    outline: none;
+    border: 1px solid #3C37F1;
+    border-radius: 25px;
+    /* box-shadow: 1px 1px 15px gray; */
+    transition: all 0.3s ease;
+    margin-left: 15px;
+}
+.log_out_btn:hover{
+    background-color: #3C37F1;
+    color: white;
+}
+.log_out_icon{
+    margin-right: 5px;
+    font-size: 22px;
+}
 @media (max-width: 768px) {
     .welcome h4{
         margin: 0 auto;

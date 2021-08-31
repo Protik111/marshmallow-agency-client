@@ -1,6 +1,6 @@
 .orders_menu_container{
     background-color: #524de0;
-    height: 100vh;
+    height: 110vh;
     border-top-right-radius: 15px;
 }
 .orders_menu ul li{
@@ -40,10 +40,74 @@
 .user_menu{
     color: white;
 }
+.input_item{
+    width: 30%;
+    border-radius: 5px;
+    border: 1px solid #524de0;
+}
+.desciption_input_item{
+    width: 50%;
+    border-radius: 5px;
+    border: 1px solid #524de0;
+}
+.input_item:focus,
+.desciption_input_item:focus{
+    outline-color: #524de0;
+}
+/* .input_item::placeholder{
+    color: #524de0;
+} */
+.submitButton{
+    padding: 10px 25px;
+    color: white;
+    outline: none;
+    background-color: #4b47d4;
+    border: none;
+    border-radius: 15px;
+    /* box-shadow: 1px 1px 15px gray; */
+    transition: all 0.3s ease;
+    margin-left: 15px;
+}
+.submitButton:hover{
+    background-color: #170fe9;
+}
+.submitButton:active{
+    color: rgb(105, 143, 212);
+}
+.orderName{
+    width: 30%;
+    border-radius: 5px;
+    border: 1px solid #524de0;
+}
+.orderName:focus{
+    outline-color: #524de0;
+}
+.orderName::placeholder{
+    top: 1px;
+    font-size: 12px;
+    position: absolute;
+    color: #170fe9;
+}
 
 @media (max-width: 768px) {
     .orders_menu_container{
         height: 70vh;
         text-align: center;
+    }
+    .input_item{
+        width: 100%;
+    }
+    .orderName{
+        width: 100%;
+    }
+    .desciption_input_item{
+        width: 100%;
+    }
+    .makeOrder_header{
+        text-align: center;
+    }
+    .submitButton_container{
+        text-align: center;
+        /* margin-bottom: 50px; */
     }
 }

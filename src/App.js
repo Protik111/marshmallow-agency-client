@@ -28,7 +28,7 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <PrivateRoute path="/userDashboard">
+          <PrivateRoute path="/userDashboard/:serviceId">
             <UserDashboard />
           </PrivateRoute>
         </Switch>

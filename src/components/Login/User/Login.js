@@ -1,20 +1,25 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import { UserContext } from '../../../App';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, NavLink } from 'react-router-dom';
 import styles from './Login.module.css';
 import { FcGoogle } from 'react-icons/fc';
+import { AiOutlineHome } from 'react-icons/ai';
 import logoDark from '../../../images/logos/logo-dark.png';
+
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 
-//initializing firebase app
-firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
+
+    //initializing firebase app
+    if (firebase.apps.length === 0) {
+        firebase.initializeApp(firebaseConfig);
+    }
     const [newUser, setNewUser] = useState(false);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
@@ -42,6 +47,37 @@ const Login = () => {
         success: false,
     });
 
+
+    // firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+    //     .then(() => {
+    //         // Existing and future Auth states are now persisted in the current
+    //         // session only. Closing the window would clear any existing state even
+    //         // if a user forgets to sign out.
+    //         // ...
+    //         // New sign-in will be persisted with session persistence.
+    //         return firebase.auth().signInWithEmailAndPassword(email, password);
+    //         // console.log(email, password);
+    //     })
+    //     .catch((error) => {
+    //         // Handle Errors here.
+    //         var errorCode = error.code;
+    //         var errorMessage = error.message;
+    //     });
+
+    // firebase.auth().onAuthStateChanged(user => {
+    //     console.log(user.email);
+    // })
+
+    // useEffect(() => {
+    //     firebase.auth().onAuthStateChanged((user) => {
+    //         if(user){
+    //             setLoggedInUser(user);
+    //             console.log(user);
+    //         }
+    //         // console.log(user);
+    //     })
+    // }, [])
+
     //google sign in
     const handleGoogle = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
@@ -57,6 +93,7 @@ const Login = () => {
                 setUser(newUserInfo);
                 setLoggedInUser(newUserInfo);
                 history.replace(from);
+                localStorage.setItem('email', JSON.stringify(newUserInfo.email));
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
@@ -73,8 +110,8 @@ const Login = () => {
             displayName: name,
         })
             .then(result => {
-                console.log('Updated profile');
-                console.log(result);
+                // console.log('Updated profile');
+                // console.log(result);
             })
             .catch(function (error) {
                 console.log(error)
@@ -85,53 +122,53 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(newUser && user.email && user.password && user.password === user.password2){
+        if (newUser && user.email && user.password && user.password === user.password2) {
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-            .then((res) => {
-                // Signed in 
-                const newUserInfo = { ...res.user };
-                console.log(res);
-                console.log('firstName', user.firstName, user.lastName);
-                const name = user.firstName+ ' ' +user.lastName;
-                newUserInfo.displayName = name;
-                console.log(newUserInfo);
-                setLoggedInUser(newUserInfo);
-                setUser(newUserInfo);
-                // console.log(user);
-                // console.log(user.displayName);
-                updateUserProfile(name);
-                history.replace(from);
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                setErrorSignup(errorMessage);
-                console.log(errorSignup);
-                // setUser.errors(errorMessage);
-                // console.log(errorMessage);
-                // ..
-            });
+                .then((res) => {
+                    // Signed in 
+                    const newUserInfo = { ...res.user };
+                    // console.log(res);
+                    // console.log('firstName', user.firstName, user.lastName);
+                    const name = user.firstName + ' ' + user.lastName;
+                    newUserInfo.displayName = name;
+                    console.log(newUserInfo);
+                    setLoggedInUser(newUserInfo);
+                    setUser(newUserInfo);
+                    // console.log(user);
+                    // console.log(user.displayName);
+                    updateUserProfile(name);
+                    history.replace(from);
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    setErrorSignup(errorMessage);
+                    // console.log(errorSignup);
+                    // setUser.errors(errorMessage);
+                    // console.log(errorMessage);
+                    // ..
+                });
         }
-        if(newUser && user.password != user.password2){
+        if (newUser && user.password != user.password2) {
             setPassStatus(`Password didn't matches!`);
         }
 
         //sign in with email and password
-        if(!newUser && user.email && user.password) {
+        if (!newUser && user.email && user.password) {
             firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-            .then((userCredential) => {
-                const newUserInfo = { ...userCredential.user };
-                setLoggedInUser(newUserInfo);
-                setUser(newUserInfo);
-                history.replace(from);
+                .then((userCredential) => {
+                    const newUserInfo = { ...userCredential.user };
+                    setLoggedInUser(newUserInfo);
+                    setUser(newUserInfo);
+                    history.replace(from);
 
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                setErrors(errorMessage);
-                console.log(errors);
-            });
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    setErrors(errorMessage);
+                    // console.log(errors);
+                });
         }
     }
 
@@ -191,12 +228,14 @@ const Login = () => {
         }
     }
 
-    
+
     return (
         <div className={`${styles.login_container} container-fluid`}>
             <div className={`${styles.sign_in_box} text-center`}>
                 <div className={`${styles.signin_logo}`}>
-                    <img src={logoDark} alt="" />
+                    <NavLink to="/home">
+                        <img tooltip="Click To Go Home!" src={logoDark} alt="" />
+                    </NavLink>
                 </div>
                 <div>
                     <form action="" onSubmit={handleSubmit}>
@@ -217,7 +256,7 @@ const Login = () => {
                             <input name="password2" onChange={handleChange} onBlur={handleBlur} className={`${styles.form_input}`} type="password" placeholder="Confirm Password" required />
                             {newUser && <p className={styles.error_text}>{error2}</p>}
                         </div>}
-                        <div className="text-center mt-2 mb-2">
+                        <div className="text-center mt-2 mb-1">
                             <input className="common_button" type="submit" value={newUser ? 'Sign Up' : 'Sign In'} />
                         </div>
 
@@ -234,7 +273,7 @@ const Login = () => {
                         </p>}
                     </form>
                 </div>
-                <div className={`${styles.signin_check} text-center mb-2`}>
+                <div className={`${styles.signin_check} text-center mb-1`}>
                     <p>{newUser ? 'Already have an account?' : 'Are a New User?'}</p>
                     <input onClick={() => {
                         setNewUser(!newUser);
@@ -244,6 +283,11 @@ const Login = () => {
                 </div>
                 <div className="text-center">
                     <button className={`${styles.sign_in_button}`} onClick={handleGoogle}><FcGoogle className={styles.google_icon}></FcGoogle>Sign In With Google</button>
+                </div>
+                <div className="text-center mt-3">
+                    <NavLink to="/home">
+                        <button className={`${styles.sign_in_button}`}><AiOutlineHome className={styles.google_icon}></AiOutlineHome>Back To Home</button>
+                    </NavLink>
                 </div>
             </div>
         </div>
