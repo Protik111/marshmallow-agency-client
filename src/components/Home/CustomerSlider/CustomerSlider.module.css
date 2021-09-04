@@ -1,0 +1,31 @@
+.sliderContainer{
+    height: 100%;
+}
+.slider_item {
+    display: flex;
+    border: 1px solid #3C37F1;
+    border-radius: 15px;
+
+}
+.slider_img img{
+    border-radius: 20px;
+    width: 120px;
+    height: 120px;
+}
+
+@media (max-width: 768px) {
+    .slider_item {
+        flex-direction: column;
+    }
+    .slider_img img{
+        border-radius: 15px;
+        width: 102px;
+        height: 100px;
+    }
+    .slider_img{
+        text-align: center;
+    }
+    .reviewName {
+        text-align: center;
+    }
+}

@@ -1,5 +1,5 @@
 .orders_menu_container{
-    background-color: #524de0;
+    background-image: linear-gradient(to right bottom, #7875e0, #A52EFA);
     height: 110vh;
     border-top-right-radius: 15px;
 }
@@ -24,6 +24,7 @@
     color: #fff;
 }
 .orders_menu ul li a{
+    padding: 17px 80px 17px 0;
     text-decoration: none;
     font-size: 20px;
     /* color: red; */

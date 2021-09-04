@@ -92,14 +92,24 @@ const Login = () => {
                 const newUserInfo = { displayName: displayName, email, photo: photoURL };
                 setUser(newUserInfo);
                 setLoggedInUser(newUserInfo);
+                setUserToken();
+                sessionStorage.setItem('name', newUserInfo.displayName);
                 history.replace(from);
-                localStorage.setItem('email', JSON.stringify(newUserInfo.email));
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 const email = error.email;
                 const credential = error.credential;
             });
+    }
+
+    //firebase verify jwt
+    const setUserToken = () => {
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+            sessionStorage.setItem('token', idToken);
+          }).catch(function(error) {
+            // Handle error
+          });
     }
 
     //updating fullname
@@ -137,6 +147,8 @@ const Login = () => {
                     // console.log(user);
                     // console.log(user.displayName);
                     updateUserProfile(name);
+                    setUserToken();
+                    sessionStorage.setItem('name', newUserInfo.displayName);
                     history.replace(from);
                 })
                 .catch((error) => {
@@ -160,6 +172,8 @@ const Login = () => {
                     const newUserInfo = { ...userCredential.user };
                     setLoggedInUser(newUserInfo);
                     setUser(newUserInfo);
+                    setUserToken();
+                    sessionStorage.setItem('name', newUserInfo.displayName);
                     history.replace(from);
 
                 })

@@ -22,6 +22,7 @@ const Home = () => {
             <Workers></Workers>
             <Slider></Slider>
             <Count></Count>
+            {/* <CustomerData></CustomerData> */}
             <Customer></Customer>
             <Partners></Partners>
             <Plan></Plan>

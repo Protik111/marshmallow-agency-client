@@ -14,17 +14,17 @@ const Header = () => {
         });
     }, []);
     return (
-        <div className={`${styles.header} container-fluid`} id="home">
+        <div className={`${styles.header} container-fluid p-5`} id="home">
             <div className="row">
                 <div data-aos="zoom-in" className={`${styles.header_text} col-md-5 offset-md-1 offset-sm-1`}>
                     <h1>We Help Power Millions of Business in 100+
-                        <br/>Countries.
+                        <br />Countries.
                     </h1>
                     <p className="mt-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti repudiandae saepe fugiat. Doloribus, nulla dolor? Ratione nam quia minus distinctio.</p>
                     <button className={styles.btn_learn}>Learn More</button>
                 </div>
                 <div data-aos="zoom-in" className="col-md-5 offset-md-1 mt-5">
-                    <img className={`${styles.header_image} img-fluid mt-5`} src={headerImage} alt=""/>
+                    <img className={`${styles.header_image} img-fluid mt-5`} src={headerImage} alt="" />
                 </div>
             </div>
         </div>

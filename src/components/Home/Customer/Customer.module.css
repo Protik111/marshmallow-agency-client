@@ -1,13 +1,7 @@
 .tesimonial_container{
     background-image: url(../../../images/logos/testimonial-bg.png);
-}
-.slider_item {
-    display: flex;
-}
-.slider_item img{
-    border-radius: 15px;
-    width: 120px;
-    height: 120px;
+    height: 100%;
+    width: 100%;
 }
 .heading{
     color: #fff;

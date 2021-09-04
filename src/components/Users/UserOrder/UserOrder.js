@@ -25,8 +25,38 @@ const UserOrder = (props) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { register: register2, handleSubmit: handleSubmit2, watch: watch2, formState: { errors: errors2 } } = useForm();
 
-    const onSubmit = data => console.log(data);
-    const onSubmitReviews = data2 => console.log(data2);
+    const onSubmit = data => {
+        fetch('http://localhost:5000/user/addOrder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(result => {
+            if(result){
+                alert('Order done');
+            }
+        })
+    };
+
+    //posting a review
+    const onSubmitReviews = data2 => {
+        fetch('http://localhost:5000/user/addReview', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data2)
+        })
+        .then(res => res.json())
+        .then(result => {
+            if(result){
+                alert('Review added');
+            }
+        })
+    };
 
 
     console.log(watch("example"));
@@ -155,7 +185,7 @@ const UserOrder = (props) => {
                                     </div>
 
                                     <div className={`${styles.description_input} m-3`}>
-                                        <label htmlFor="reviewR">Your Review</label>
+                                        <label htmlFor="review">Your Review</label>
                                         <br/>
                                         <input name="review" className={`${styles.desciption_input_item} py-5`} placeholder="Put Your Review" type="text" {...register2("review", { required: true })} />
                                         <br />

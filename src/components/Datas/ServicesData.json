@@ -2,31 +2,38 @@
     {
         "id" : 1,
         "name" : "Integrated Marketing",
-        "img" : "https://i.ibb.co/McPFjR2/integrated-marketing.png"
+        "img" : "https://i.ibb.co/McPFjR2/integrated-marketing.png",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing."
     },
     {
         "id" : 2,
         "name" : "Design And Development",
-        "img" : "https://i.ibb.co/BwV6RSJ/design-development.png"
+        "img" : "https://i.ibb.co/BwV6RSJ/design-development.png",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing."
     },
     {
         "id" : 3,
         "name" : "Digital Strategy",
-        "img" : "https://i.ibb.co/1QvQftL/digital-strategy.png"
+        "img" : "https://i.ibb.co/1QvQftL/digital-strategy.png",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing."
     },
     {
         "id" : 4,
         "name" : "Digital Marketing",
-        "img" : "https://i.ibb.co/vcMrnHn/digital-marketing.png"
+        "img" : "https://i.ibb.co/vcMrnHn/digital-marketing.png",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing."
+
     },
     {
         "id" : 5,
         "name" : "Growth Strategy",
-        "img" : "https://i.ibb.co/4JY6Gxr/growth-strategy.png"
+        "img" : "https://i.ibb.co/4JY6Gxr/growth-strategy.png",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing."
     },
     {
         "id" : 6,
         "name" : "Saving Strategy",
-        "img" : "https://i.ibb.co/s1S9PHM/saving-strategy.png"
+        "img" : "https://i.ibb.co/s1S9PHM/saving-strategy.png",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing."
     }
 ]

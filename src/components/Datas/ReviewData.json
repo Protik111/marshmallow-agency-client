@@ -1,0 +1,32 @@
+[
+    {
+        "id" : 1,
+        "nameR" : "Dave Gustange",
+        "imgR" : "https://i.ibb.co/kSY83f9/testimonial1.jpg",
+        "review": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, sit?"
+    },
+    {
+        "id" : 2,
+        "nameR" : "Mike Hussy",
+        "imgR" : "https://i.ibb.co/R0xW8NK/testimonial2.jpg",
+        "review": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, sit?"
+    },
+    {
+        "id" : 3,
+        "nameR" : "Mike Tyson",
+        "imgR" : "https://i.ibb.co/fQLdr8L/testimonial3.jpg",
+        "review": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, sit?"
+    },
+    {
+        "id" : 4,
+        "nameR" : "Lane Paul",
+        "imgR" : "https://i.ibb.co/ZG5CxL5/testimonial4.jpg",
+        "review": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, sit?"
+    },
+    {
+        "id" : 5,
+        "nameR" : "Conor Mcgregor",
+        "imgR" : "https://i.ibb.co/QMZkGHn/testimonial5.jpg",
+        "review": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, sit?"
+    }
+]
