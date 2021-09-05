@@ -12,7 +12,7 @@ import datas from '../../Datas/ServicesData.json';
 
 
 const UserOrder = (props) => {
-    const serviceId  = props.id;
+    const serviceId = props.id;
 
     const [data, setData] = useState(datas);
     useEffect(() => {
@@ -26,6 +26,7 @@ const UserOrder = (props) => {
     const { register: register2, handleSubmit: handleSubmit2, watch: watch2, formState: { errors: errors2 } } = useForm();
 
     const onSubmit = data => {
+        console.log(data);
         fetch('http://localhost:5000/user/addOrder', {
             method: 'POST',
             headers: {
@@ -33,12 +34,12 @@ const UserOrder = (props) => {
             },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(result => {
-            if(result){
-                alert('Order done');
-            }
-        })
+            .then(res => res.json())
+            .then(result => {
+                if (result) {
+                    alert('Order done');
+                }
+            })
     };
 
     //posting a review
@@ -50,14 +51,37 @@ const UserOrder = (props) => {
             },
             body: JSON.stringify(data2)
         })
-        .then(res => res.json())
-        .then(result => {
-            if(result){
-                alert('Review added');
+            .then(res => res.json())
+            .then(result => {
+                if (result) {
+                    alert('Review added');
+                }
+            })
+    };
+    //showing users made order
+    const [userOrder, setUserOrder] = useState([]);
+    const handleAllOrders = () => {
+        setActive("yourOrder");
+    }
+    useEffect(() => {
+        fetch('http://localhost:5000/user/showAllOrders?email='+loggedInUser.email, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
             }
         })
-    };
+            .then(res => res.json())
+            .then(data => setUserOrder(data));
+    }, []);
 
+    //showing users posted reviews by email
+    const [review, setReview] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/user/showReview?email='+loggedInUser.email)
+            .then(res => res.json())
+            .then(data => setReview(data));
+    }, []);
 
     console.log(watch("example"));
 
@@ -70,13 +94,13 @@ const UserOrder = (props) => {
                         <ul className="">
                             <li className="p-3"><MdDashboard className={styles.icons}></MdDashboard><a className={styles.user_menu} onClick={() => setActive("dashboard")}>Dashboard</a></li>
 
-                            <li className="p-3"><BsCardList className={styles.icons}></BsCardList><a className={styles.user_menu} onClick={() => setActive("yourOrder")}>Your Orders</a></li>
+                            <li className="p-3"><BsCardList className={styles.icons}></BsCardList><a className={styles.user_menu} onClick={handleAllOrders}>Your Orders</a></li>
 
                             <li className="p-3"><IoIosCreate className={styles.icons}></IoIosCreate><a className={styles.user_menu} onClick={() => setActive("makeOrder")}>Make Order</a></li>
 
-                            <li className="p-3"><MdRateReview className={styles.icons}></MdRateReview><a className={styles.user_menu} onClick={() => setActive("yourReviews")}>Reviews</a></li>
+                            <li className="p-3"><MdRateReview className={styles.icons}></MdRateReview><a className={styles.user_menu} onClick={() => setActive("yourReviews")}>Your Reviews</a></li>
 
-                            <li className="p-3"><VscPreview className={styles.icons}></VscPreview><a className={styles.user_menu} onClick={() => setActive("makeReview")}>Make Review</a></li>
+                            <li className="p-3"><VscPreview className={styles.icons}></VscPreview><a className={styles.user_menu} onClick={() => setActive("makeReview")}>Post Review</a></li>
                         </ul>
                     </div>
                 </div>
@@ -84,42 +108,38 @@ const UserOrder = (props) => {
                     <div>
                         {active == "dashboard" && <h1>Dashboard Comming Soon</h1>}
                     </div>
-                    <div>
-                        {active == "yourOrder" && <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>}
+                    <div className={styles.tableContainer}>
+                        {active == "yourOrder" &&
+                            <div>
+                                <h3 className={`${styles.makeOrder_header} m-3`}>Your Order Lists</h3>
+                                <table class="table table-sm table-bordered text-center">
+                                    <thead>
+                                        <tr>
+                                            <th className={styles.theader} scope="col">Order Name</th>
+                                            <th scope="col">Descrition</th>
+                                            <th scope="col">Order Maker Name</th>
+                                            <th scope="col">Owner Email</th>
+                                            <th scope="col">Owner Phone</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {userOrder.map(order => <tr>
+                                            <td>{order.orderName}</td>
+                                            <td>{order.description}</td>
+                                            <td>{order.name}</td>
+                                            <td>{order.email}</td>
+                                            <td>{order.phone}</td>
+                                        </tr>)}
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
                     </div>
                     <div>
                         {active == "makeOrder" &&
 
                             <div>
-                                <h2 className={`${styles.makeOrder_header} m-3`}>Make A Order</h2>
+                                <h3 className={`${styles.makeOrder_header} m-3`}>Make A Order</h3>
                                 <form onSubmit={handleSubmit(onSubmit)}>
 
                                     <div className="m-3">
@@ -129,7 +149,7 @@ const UserOrder = (props) => {
                                     </div>
 
                                     <div className="m-3">
-                                        <input name="email" className={`${styles.input_item} py-3`} placeholder="Your Email" type="text" {...register("email", { required: true })} />
+                                        <input name="email" value={loggedInUser.email} className={`${styles.input_item} py-3`} placeholder="Your Email" type="text" {...register("email", { required: true })} />
                                         <br />
                                         {errors.email && <span className="text-danger">This field is required</span>}
                                     </div>
@@ -160,17 +180,37 @@ const UserOrder = (props) => {
                         }
                     </div>
                     <div>
-                        {active == "yourReviews" && <h3>Your Reviews</h3>}
+                        {active == "yourReviews" &&
+                            <div>
+                                <h3 className={`${styles.makeOrder_header} m-3`}>Your Posted Reviews</h3>
+                                <table class="table table-sm table-bordered text-center">
+                                    <thead>
+                                        <tr>
+                                            <th className={styles.theader} scope="col">Reviewer Name</th>
+                                            <th scope="col">Your Review</th>
+                                            <th scope="col">Your Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {review.map(rv => <tr>
+                                            <td>{rv.nameR}</td>
+                                            <td>{rv.review}</td>
+                                            <td>{rv.emailR}</td>
+                                        </tr>)}
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
                     </div>
                     <div>
                         {active == "makeReview" &&
                             <div>
-                                <h2 className={`${styles.makeOrder_header} m-3`}>Give A Review</h2>
+                                <h3 className={`${styles.makeOrder_header} m-3`}>Give A Review</h3>
                                 <form onSubmit={handleSubmit2(onSubmitReviews)}>
 
                                     <div className="m-3">
                                         <label htmlFor="nameR">Your Name</label>
-                                        <br/>
+                                        <br />
                                         <input name="nameR" value={loggedInUser.displayName} className={`${styles.input_item} py-3`} placeholder="Your Name" type="text" {...register2("nameR", { required: true })} />
                                         <br />
                                         {errors2.nameR && <span className="text-danger">This field is required</span>}
@@ -178,7 +218,7 @@ const UserOrder = (props) => {
 
                                     <div className="m-3">
                                         <label htmlFor="emailR">Your Email</label>
-                                        <br/>
+                                        <br />
                                         <input name="emailR" value={loggedInUser.email} className={`${styles.input_item} py-3`} placeholder="Your Email" type="email" {...register2("emailR", { required: true })} />
                                         <br />
                                         {errors2.emailR && <span className="text-danger">This field is required</span>}
@@ -186,7 +226,7 @@ const UserOrder = (props) => {
 
                                     <div className={`${styles.description_input} m-3`}>
                                         <label htmlFor="review">Your Review</label>
-                                        <br/>
+                                        <br />
                                         <input name="review" className={`${styles.desciption_input_item} py-5`} placeholder="Put Your Review" type="text" {...register2("review", { required: true })} />
                                         <br />
                                         {errors2.review && <span className="text-danger">This field is required</span>}

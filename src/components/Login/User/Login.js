@@ -171,6 +171,7 @@ const Login = () => {
                 .then((userCredential) => {
                     const newUserInfo = { ...userCredential.user };
                     setLoggedInUser(newUserInfo);
+                    console.log(newUserInfo);
                     setUser(newUserInfo);
                     setUserToken();
                     sessionStorage.setItem('name', newUserInfo.displayName);

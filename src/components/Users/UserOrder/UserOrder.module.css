@@ -89,6 +89,12 @@
     position: absolute;
     color: #170fe9;
 }
+.tableContainer{
+    overflow-x: auto;
+}
+.theader{
+    height: 50px;
+}
 
 @media (max-width: 768px) {
     .orders_menu_container{
