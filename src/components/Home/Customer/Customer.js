@@ -21,6 +21,7 @@ const Customer = () => {
 
     const [reviews, setReviews] = useState([]);
 
+    //showing all revies in homepage
     useEffect(() => {
         fetch('http://localhost:5000/user/showAllReviews')
             .then(res => res.json())

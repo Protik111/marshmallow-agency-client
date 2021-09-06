@@ -24,7 +24,7 @@ const Services = () => {
             .then(res => res.json())
             .then(data => {
                 setService(data);
-                console.log(service);
+                // console.log(service);
             })
     }, []);
     return (

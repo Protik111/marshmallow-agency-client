@@ -141,10 +141,8 @@ const UserOrder = (props) => {
 
                             <div>
                                 <h3 className={`${styles.makeOrder_header} m-3`}>Make A Order</h3>
-                                <h2 className={`${styles.makeOrder_header} m-3`}>{status}</h2>
-
+                                
                                 <form onSubmit={handleSubmit(onSubmit)}>
-
                                     <div className="m-3">
                                         <input name="name" className={`${styles.input_item} py-3`} placeholder="Your Name" type="text" {...register("name", { required: true })} />
                                         <br />

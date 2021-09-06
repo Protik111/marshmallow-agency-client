@@ -13,7 +13,7 @@ const AdminHeader = () => {
         sessionStorage.removeItem('adminName');
     }
     return (
-        <div className={`${styles.dashboard_nav} container-fluid`}>
+        <div className={`${styles.dashboard_nav} container-fluid mb-2`}>
             <div className="row">
                 <div className={`${styles.user_logo} col-md-1 offset-md-1 mt-4 text-center`}>
                     <Link to="/home">
@@ -29,10 +29,10 @@ const AdminHeader = () => {
                     </div>
                 </div>
             </div>
-            <hr className={styles.headline} />
             <div className="text-center">
-                <h1 className={`${styles.welcome2}`}>Welcome To Admin Dashboard</h1>
+                <h3 className={`${styles.welcome2}`}>Welcome To Admin Dashboard</h3>
             </div>
+            <hr className={styles.headline} />
         </div>
     );
 };

@@ -1,6 +1,6 @@
 .orders_menu_container{
     background-image: linear-gradient(to right bottom, #7875e0, #A52EFA);
-    height: 110vh;
+    height: 200vh;
     border-top-right-radius: 15px;
 }
 .orders_menu ul li{
