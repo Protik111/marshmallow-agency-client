@@ -25,6 +25,7 @@ const UserOrder = (props) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { register: register2, handleSubmit: handleSubmit2, watch: watch2, formState: { errors: errors2 } } = useForm();
 
+    const [status, setStatus] = useState('');
     const onSubmit = data => {
         console.log(data);
         fetch('http://localhost:5000/user/addOrder', {
@@ -64,7 +65,7 @@ const UserOrder = (props) => {
         setActive("yourOrder");
     }
     useEffect(() => {
-        fetch('http://localhost:5000/user/showAllOrders?email='+loggedInUser.email, {
+        fetch('http://localhost:5000/user/showAllOrders?email=' + loggedInUser.email, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -78,7 +79,7 @@ const UserOrder = (props) => {
     //showing users posted reviews by email
     const [review, setReview] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/user/showReview?email='+loggedInUser.email)
+        fetch('http://localhost:5000/user/showReview?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setReview(data));
     }, []);
@@ -140,6 +141,8 @@ const UserOrder = (props) => {
 
                             <div>
                                 <h3 className={`${styles.makeOrder_header} m-3`}>Make A Order</h3>
+                                <h2 className={`${styles.makeOrder_header} m-3`}>{status}</h2>
+
                                 <form onSubmit={handleSubmit(onSubmit)}>
 
                                     <div className="m-3">

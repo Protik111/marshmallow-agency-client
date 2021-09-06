@@ -57,6 +57,9 @@ nav .hamberger i{
 .admin_btn:hover{
     background-color: #0ea052;
 }
+.adminBtn{
+    text-decoration: none;
+}
 
 /* media queries */
 @media (max-width: 1300px) {

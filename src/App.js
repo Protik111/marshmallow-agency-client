@@ -10,13 +10,17 @@ import UserDashboard from './components/Users/UserDashboard/UserDashboard';
 import Login from './components/Login/User/Login';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import AdminPrivateRoute from './components/PrivateRoute/AdminPrivateRoute';
+import AdminDashboard from './components/Admin/AdminDashboard/AdminDashboard';
+import AdminLogin from './components/Login/Admin/AdminLogin';
 
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [adminLoggedIn, setAdminLoggedIn] = useState({});
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser, adminLoggedIn, setAdminLoggedIn]}>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -31,6 +35,12 @@ function App() {
           <PrivateRoute path="/userDashboard/:serviceId">
             <UserDashboard />
           </PrivateRoute>
+          <AdminPrivateRoute path="/adminDashboard">
+            <AdminDashboard></AdminDashboard>
+          </AdminPrivateRoute>
+          <Route path="/adminLogin">
+            <AdminLogin></AdminLogin>
+          </Route>
         </Switch>
       </Router>
     </UserContext.Provider>

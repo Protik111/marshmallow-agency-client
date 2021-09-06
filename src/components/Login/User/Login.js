@@ -10,9 +10,6 @@ import { AiOutlineHome } from 'react-icons/ai';
 import logoDark from '../../../images/logos/logo-dark.png';
 
 
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
-
 
 const Login = () => {
 
@@ -48,35 +45,6 @@ const Login = () => {
     });
 
 
-    // firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
-    //     .then(() => {
-    //         // Existing and future Auth states are now persisted in the current
-    //         // session only. Closing the window would clear any existing state even
-    //         // if a user forgets to sign out.
-    //         // ...
-    //         // New sign-in will be persisted with session persistence.
-    //         return firebase.auth().signInWithEmailAndPassword(email, password);
-    //         // console.log(email, password);
-    //     })
-    //     .catch((error) => {
-    //         // Handle Errors here.
-    //         var errorCode = error.code;
-    //         var errorMessage = error.message;
-    //     });
-
-    // firebase.auth().onAuthStateChanged(user => {
-    //     console.log(user.email);
-    // })
-
-    // useEffect(() => {
-    //     firebase.auth().onAuthStateChanged((user) => {
-    //         if(user){
-    //             setLoggedInUser(user);
-    //             console.log(user);
-    //         }
-    //         // console.log(user);
-    //     })
-    // }, [])
 
     //google sign in
     const handleGoogle = () => {
@@ -85,9 +53,6 @@ const Login = () => {
         firebase.auth()
             .signInWithPopup(provider)
             .then((result) => {
-                // const credential = result.credential;
-                // const token = credential.accessToken;
-                // const user = result.user;
                 const { displayName, email, photoURL } = result.user;
                 const newUserInfo = { displayName: displayName, email, photo: photoURL };
                 setUser(newUserInfo);
@@ -137,8 +102,6 @@ const Login = () => {
                 .then((res) => {
                     // Signed in 
                     const newUserInfo = { ...res.user };
-                    // console.log(res);
-                    // console.log('firstName', user.firstName, user.lastName);
                     const name = user.firstName + ' ' + user.lastName;
                     newUserInfo.displayName = name;
                     console.log(newUserInfo);
@@ -245,8 +208,8 @@ const Login = () => {
 
 
     return (
-        <div className={`${styles.login_container} container-fluid`}>
-            <div className={`${styles.sign_in_box} text-center`}>
+        <div className={`${styles.login_container} container`}>
+            <div className={`${styles.sign_in_box}`}>
                 <div className={`${styles.signin_logo}`}>
                     <NavLink to="/home">
                         <img tooltip="Click To Go Home!" src={logoDark} alt="" />
