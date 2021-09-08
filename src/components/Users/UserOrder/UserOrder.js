@@ -9,10 +9,16 @@ import { UserContext } from '../../../App';
 import { useForm } from "react-hook-form";
 //fakedata
 import datas from '../../Datas/ServicesData.json';
+import { AiFillDelete } from 'react-icons/ai';
 
 
 const UserOrder = (props) => {
     const serviceId = props.id;
+    const email = sessionStorage.getItem('email');
+    const name = sessionStorage.getItem('name');
+    const token = sessionStorage.getItem('token');
+
+    const [success, setSuccess] = useState('');
 
     const [data, setData] = useState(datas);
     useEffect(() => {
@@ -45,12 +51,19 @@ const UserOrder = (props) => {
 
     //posting a review
     const onSubmitReviews = data2 => {
+        const formData = new FormData();
+        formData.append('imgR', data2.imgR[0]);
+        formData.append('nameR', data2.nameR);
+        formData.append('emailR', data2.emailR);
+        formData.append('review', data2.review);
+
         fetch('http://localhost:5000/user/addReview', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data2)
+            body: formData,
+            // headers: {
+            //     'Content-Type': 'application/json',
+            // },
+            // body: JSON.stringify(data2)
         })
             .then(res => res.json())
             .then(result => {
@@ -65,7 +78,7 @@ const UserOrder = (props) => {
         setActive("yourOrder");
     }
     useEffect(() => {
-        fetch('http://localhost:5000/user/showAllOrders?email=' + loggedInUser.email, {
+        fetch('http://localhost:5000/user/showAllOrders?email=' + (loggedInUser.email || email), {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -74,15 +87,27 @@ const UserOrder = (props) => {
         })
             .then(res => res.json())
             .then(data => setUserOrder(data));
-    }, []);
+    }, [userOrder]);
 
     //showing users posted reviews by email
     const [review, setReview] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/user/showReview?email=' + loggedInUser.email)
+        fetch('http://localhost:5000/user/showReview?email=' + (loggedInUser.email || email))
             .then(res => res.json())
             .then(data => setReview(data));
-    }, []);
+    }, [review]);
+
+    //deleting order of user
+    const handleDelete = (id) => {
+        // console.log('deleted', id);
+        fetch(`http://localhost:5000/user/deleteOrder/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(result => {
+                    setSuccess('Deleted Successfully');
+            })
+    };
 
     console.log(watch("example"));
 
@@ -113,6 +138,7 @@ const UserOrder = (props) => {
                         {active == "yourOrder" &&
                             <div>
                                 <h3 className={`${styles.makeOrder_header} m-3`}>Your Order Lists</h3>
+                                <p>{success}</p>
                                 <table class="table table-sm table-bordered text-center">
                                     <thead>
                                         <tr>
@@ -121,6 +147,7 @@ const UserOrder = (props) => {
                                             <th scope="col">Order Maker Name</th>
                                             <th scope="col">Owner Email</th>
                                             <th scope="col">Owner Phone</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -130,6 +157,7 @@ const UserOrder = (props) => {
                                             <td>{order.name}</td>
                                             <td>{order.email}</td>
                                             <td>{order.phone}</td>
+                                            <td onClick={() => handleDelete(order._id)} className={styles.delete_icon}><AiFillDelete></AiFillDelete></td>
                                         </tr>)}
                                     </tbody>
                                 </table>
@@ -141,7 +169,7 @@ const UserOrder = (props) => {
 
                             <div>
                                 <h3 className={`${styles.makeOrder_header} m-3`}>Make A Order</h3>
-                                
+
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="m-3">
                                         <input name="name" className={`${styles.input_item} py-3`} placeholder="Your Name" type="text" {...register("name", { required: true })} />
@@ -150,7 +178,7 @@ const UserOrder = (props) => {
                                     </div>
 
                                     <div className="m-3">
-                                        <input name="email" value={loggedInUser.email} className={`${styles.input_item} py-3`} placeholder="Your Email" type="text" {...register("email", { required: true })} />
+                                        <input name="email" value={loggedInUser.email || email} className={`${styles.input_item} py-3`} placeholder="Your Email" type="text" {...register("email", { required: true })} />
                                         <br />
                                         {errors.email && <span className="text-danger">This field is required</span>}
                                     </div>
@@ -207,12 +235,12 @@ const UserOrder = (props) => {
                         {active == "makeReview" &&
                             <div>
                                 <h3 className={`${styles.makeOrder_header} m-3`}>Give A Review</h3>
-                                <form onSubmit={handleSubmit2(onSubmitReviews)}>
+                                <form onSubmit={handleSubmit2(onSubmitReviews)} encType="multipart/form-data">
 
                                     <div className="m-3">
                                         <label htmlFor="nameR">Your Name</label>
                                         <br />
-                                        <input name="nameR" value={loggedInUser.displayName} className={`${styles.input_item} py-3`} placeholder="Your Name" type="text" {...register2("nameR", { required: true })} />
+                                        <input name="nameR" value={loggedInUser.displayName || name} className={`${styles.input_item} py-3`} placeholder="Your Name" type="text" {...register2("nameR", { required: true })} />
                                         <br />
                                         {errors2.nameR && <span className="text-danger">This field is required</span>}
                                     </div>
@@ -220,7 +248,7 @@ const UserOrder = (props) => {
                                     <div className="m-3">
                                         <label htmlFor="emailR">Your Email</label>
                                         <br />
-                                        <input name="emailR" value={loggedInUser.email} className={`${styles.input_item} py-3`} placeholder="Your Email" type="email" {...register2("emailR", { required: true })} />
+                                        <input name="emailR" value={loggedInUser.email || email} className={`${styles.input_item} py-3`} placeholder="Your Email" type="email" {...register2("emailR", { required: true })} />
                                         <br />
                                         {errors2.emailR && <span className="text-danger">This field is required</span>}
                                     </div>
@@ -231,6 +259,14 @@ const UserOrder = (props) => {
                                         <input name="review" className={`${styles.desciption_input_item} py-5`} placeholder="Put Your Review" type="text" {...register2("review", { required: true })} />
                                         <br />
                                         {errors2.review && <span className="text-danger">This field is required</span>}
+                                    </div>
+
+                                    <div className="m-3">
+                                        <label htmlFor="imgR">Your Photo</label>
+                                        <br />
+                                        <input name="imgR" type="file" {...register2("imgR", { required: true })} />
+                                        <br />
+                                        {errors2.imgR && <span className="text-danger">This field is required</span>}
                                     </div>
 
                                     <div className={`${styles.submitButton_container} m-3`}>

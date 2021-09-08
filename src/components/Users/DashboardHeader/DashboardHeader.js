@@ -11,6 +11,7 @@ const DashboardHeader = () => {
         sessionStorage.removeItem('token');
         setLoggedInUser({});
         sessionStorage.removeItem('name');
+        sessionStorage.removeItem('email');
     }
     return (
         <div className={`${styles.dashboard_nav} container-fluid`}>

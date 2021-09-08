@@ -59,6 +59,7 @@ const Login = () => {
                 setLoggedInUser(newUserInfo);
                 setUserToken();
                 sessionStorage.setItem('name', newUserInfo.displayName);
+                sessionStorage.setItem('email', newUserInfo.email);
                 history.replace(from);
             }).catch((error) => {
                 const errorCode = error.code;

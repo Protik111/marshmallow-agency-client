@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from './Customer.module.css';
 import CustomerSlider from "../CustomerSlider/CustomerSlider";
+import revData from '../../Datas/ReviewData.json';
 
 //aos animation
 import AOS from 'aos';
@@ -8,6 +9,7 @@ import 'aos/dist/aos.css';
 
 const Customer = () => {
     // const { id, nameR, imgR, review } = props.review;
+
     //inserting bulk reviewData
     // const handleBulkReview = () => {
     //     fetch('http://localhost:5000/user/addBulkReview', {
@@ -15,7 +17,7 @@ const Customer = () => {
     //         headers: {
     //             'Content-Type': 'application/json',
     //         },
-    //         body: JSON.stringify(reviewData)
+    //         body: JSON.stringify(revData)
     //     })
     // }
 
@@ -26,6 +28,7 @@ const Customer = () => {
         fetch('http://localhost:5000/user/showAllReviews')
             .then(res => res.json())
             .then(data => setReviews(data))
+            console.log('revies', reviews);
     }, []);
 
     useEffect(() => {
@@ -35,6 +38,7 @@ const Customer = () => {
         <div className={`${styles.tesimonial_container} mt-5 mb-5 p-5 container-fluid`}>
                 <div data-aos="fade-up" className="text-center mt-4 mb-5">
                     <h1 className={styles.heading}>Our Customers' Reviews</h1>
+                    {/* <button onClick={handleBulkReview}>ADd reveiw</button> */}
                 </div>
                 <div data-aos="zoom-in" className={`${styles.reviews_container} row`}>
                         {

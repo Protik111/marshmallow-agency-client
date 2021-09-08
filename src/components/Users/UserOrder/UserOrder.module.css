@@ -41,6 +41,11 @@
 .user_menu{
     color: white;
 }
+.delete_icon{
+    color: red;
+    font-size: 25px;
+    cursor: pointer;
+}
 .input_item{
     width: 30%;
     border-radius: 5px;
