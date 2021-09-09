@@ -36,6 +36,9 @@
     top: 40px;
     left: 27%;
 }
+.note{
+    font-size: 12px;
+}
 
 /* media queries */
 @media (max-width: 768px) {

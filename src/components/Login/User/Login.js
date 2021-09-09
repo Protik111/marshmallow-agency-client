@@ -71,11 +71,11 @@ const Login = () => {
 
     //firebase verify jwt
     const setUserToken = () => {
-        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
             sessionStorage.setItem('token', idToken);
-          }).catch(function(error) {
+        }).catch(function (error) {
             // Handle error
-          });
+        });
     }
 
     //updating fullname
@@ -113,6 +113,7 @@ const Login = () => {
                     updateUserProfile(name);
                     setUserToken();
                     sessionStorage.setItem('name', newUserInfo.displayName);
+                    sessionStorage.setItem('email', newUserInfo.email);
                     history.replace(from);
                 })
                 .catch((error) => {
@@ -139,6 +140,7 @@ const Login = () => {
                     setUser(newUserInfo);
                     setUserToken();
                     sessionStorage.setItem('name', newUserInfo.displayName);
+                    sessionStorage.setItem('email', newUserInfo.email);
                     history.replace(from);
 
                 })

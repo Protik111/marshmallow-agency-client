@@ -76,7 +76,7 @@ const AdminLogin = () => {
                 </div>
                 <div className="text-center mb-3">
                     <h5>Sign In As Admin</h5>
-                    <p className={styles.note}>NB: Anyone can sign in as a admin</p>
+                    <p className={styles.note}>NB: Anyone can sign in as a admin <br/> for testing purpose.</p>
                 </div>
                 <div className={`${styles.sign_in_button_box} text-center`}>
                     <button className={`${styles.sign_in_button}`} onClick={handleGoogle2}><FcGoogle className={styles.google_icon}></FcGoogle>Sign In With Google</button>

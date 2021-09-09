@@ -22,7 +22,7 @@ const DashboardHeader = () => {
                         </Link>
                     </div>
                 <div className="col-md-5 offset-md-5 mt-4">
-                    <div className={`${styles.welcome}`}>
+                    <div className={`${styles.welcome} text-center`}>
                         <h4>Welcome!</h4>
                         <h4 className={styles.name}>{(loggedInUser.displayName || sessionStorage.getItem('name'))}</h4>
                         <NavLink to="/login">

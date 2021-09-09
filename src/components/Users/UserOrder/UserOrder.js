@@ -10,9 +10,13 @@ import { useForm } from "react-hook-form";
 //fakedata
 import datas from '../../Datas/ServicesData.json';
 import { AiFillDelete } from 'react-icons/ai';
+import { VictoryBar, VictoryChart, VictoryTheme } from 'victory';
+
 
 
 const UserOrder = (props) => {
+
+
     const serviceId = props.id;
     const email = sessionStorage.getItem('email');
     const name = sessionStorage.getItem('name');
@@ -105,13 +109,28 @@ const UserOrder = (props) => {
         })
             .then(res => res.json())
             .then(result => {
-                    setSuccess('Deleted Successfully');
+                setSuccess('Deleted Successfully');
             })
     };
 
-    console.log(watch("example"));
+    //deleting review from user id
+    const handleDeleteReview = (id) => {
+        fetch(`http://localhost:5000/user/deleteReview/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(result => console.log(result));
+    }
+
+    // console.log(watch("example"));
 
     const [active, setActive] = useState("dashboard");
+
+    const data2 = [
+        { quarter: 'Total Orders', earnings: userOrder.length },
+        { quarter: 'Total Reviews', earnings: review.length }
+    ];
+
     return (
         <div className="container-fluid">
             <div className="row">
@@ -132,7 +151,22 @@ const UserOrder = (props) => {
                 </div>
                 <div className="col-md-9 mt-5 mb-5">
                     <div>
-                        {active == "dashboard" && <h1>Dashboard Comming Soon</h1>}
+                        {active == "dashboard" &&
+                            <div className="w-50 m-auto">
+                                <h3 className={`${styles.makeOrder_header} m-3`}>Your Total Orders And Reviews</h3>
+                                <VictoryChart
+                                    theme={VictoryTheme.material}
+                                    domainPadding={{ x: 15 }}>
+                                    <VictoryBar
+                                        data={data2}
+                                        // data accessor for x values
+                                        x="quarter"
+                                        // data accessor for y values
+                                        y="earnings"
+                                    />
+                                </VictoryChart>
+                            </div>
+                        }
                     </div>
                     <div className={styles.tableContainer}>
                         {active == "yourOrder" &&
@@ -218,6 +252,7 @@ const UserOrder = (props) => {
                                             <th className={styles.theader} scope="col">Reviewer Name</th>
                                             <th scope="col">Your Review</th>
                                             <th scope="col">Your Email</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -225,6 +260,7 @@ const UserOrder = (props) => {
                                             <td>{rv.nameR}</td>
                                             <td>{rv.review}</td>
                                             <td>{rv.emailR}</td>
+                                            <td onClick={() => handleDeleteReview(rv._id)} className={styles.delete_icon}><AiFillDelete></AiFillDelete></td>
                                         </tr>)}
                                     </tbody>
                                 </table>

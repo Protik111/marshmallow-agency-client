@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyCJQZIzdGVGFtDBrFWmF1hTV2Row28qSOs",
-    authDomain: "marshmallow-agency.firebaseapp.com",
-    projectId: "marshmallow-agency",
-    storageBucket: "marshmallow-agency.appspot.com",
-    messagingSenderId: "609141970912",
-    appId: "1:609141970912:web:48a0e18f8b88577c1d3d85"
+    apiKey: `${process.env.REACT_APP_FIREBASE_KEY}`,
+    authDomain: `${process.env.REACT_APP_AUTH_DOMAIN}`,
+    projectId: `${process.env.REACT_APP_PROJECT_ID}`,
+    storageBucket: `${process.env.REACT_APP_STORAGE_BUCKET}`,
+    messagingSenderId: `${process.env.REACT_APP_MESSAGING_SENDER_ID}`,
+    appId: `${process.env.REACT_APP_API_ID}`
   };
 
 export default firebaseConfig;

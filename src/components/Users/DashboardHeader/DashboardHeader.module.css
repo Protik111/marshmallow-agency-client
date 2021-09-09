@@ -41,4 +41,13 @@
     .welcome h4{
         margin: 0 auto;
     }
+    .welcome{
+        flex-direction: column;
+    }
+    .dashboard_nav{
+        margin-bottom: 50px;
+    }
+    .log_out_btn{
+        margin-top: 15px;
+    }
 }
