@@ -14,6 +14,7 @@ import Footer from './Footer/Footer';
 import Scrollup from './Scrollup/Scrollup';
 
 const Home = () => {
+    document.title='Marshmallow Agency';
     return (
         <div>
             <Navbar></Navbar>

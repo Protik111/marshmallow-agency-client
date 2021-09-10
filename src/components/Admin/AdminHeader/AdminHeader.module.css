@@ -46,4 +46,13 @@
     .welcome2 h2{
         margin: 0 auto;
     }
+    .dashboard_nav{
+        margin-bottom: 50px;
+    }
+    .log_out_btn{
+        margin-top: 15px;
+    }
+    .welcome{
+        flex-direction: column;
+    }
 }

@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 const UserDashboard = () => {
     const { serviceId } = useParams();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    document.title="User - Dashboard"
     return (
         <div>
             <DashboardHeader></DashboardHeader>

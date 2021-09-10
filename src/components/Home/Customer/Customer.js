@@ -12,7 +12,7 @@ const Customer = () => {
 
     //inserting bulk reviewData
     // const handleBulkReview = () => {
-    //     fetch('http://localhost:5000/user/addBulkReview', {
+    //     fetch('https://nameless-crag-62193.herokuapp.com/user/addBulkReview', {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ const Customer = () => {
 
     //showing all revies in homepage
     useEffect(() => {
-        fetch('http://localhost:5000/user/showAllReviews')
+        fetch('https://nameless-crag-62193.herokuapp.com/user/showAllReviews')
             .then(res => res.json())
             .then(data => setReviews(data))
             console.log('revies', reviews);

@@ -7,7 +7,7 @@ import styles from './Services.module.css';
 const Services = () => {
     //Inserting Bulk data by button
     // const InsertBulkData = (data) => {
-    //     fetch('http://localhost:5000/admin/addBulkService', {
+    //     fetch('https://nameless-crag-62193.herokuapp.com/admin/addBulkService', {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ const Services = () => {
 
     //showing all services in homepage
     useEffect(() => {
-        fetch('http://localhost:5000/admin/showAllServices')
+        fetch('https://nameless-crag-62193.herokuapp.com/admin/showAllServices')
             .then(res => res.json())
             .then(data => {
                 setService(data);

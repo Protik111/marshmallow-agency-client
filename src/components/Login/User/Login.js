@@ -13,6 +13,8 @@ import logoDark from '../../../images/logos/logo-dark.png';
 
 const Login = () => {
 
+    document.title='User - Login';
+
     //initializing firebase app
     if (firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig);

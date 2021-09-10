@@ -38,7 +38,7 @@ const UserOrder = (props) => {
     const [status, setStatus] = useState('');
     const onSubmit = data => {
         console.log(data);
-        fetch('http://localhost:5000/user/addOrder', {
+        fetch('https://nameless-crag-62193.herokuapp.com/user/addOrder', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ const UserOrder = (props) => {
         formData.append('emailR', data2.emailR);
         formData.append('review', data2.review);
 
-        fetch('http://localhost:5000/user/addReview', {
+        fetch('https://nameless-crag-62193.herokuapp.com/user/addReview', {
             method: 'POST',
             body: formData,
             // headers: {
@@ -82,7 +82,7 @@ const UserOrder = (props) => {
         setActive("yourOrder");
     }
     useEffect(() => {
-        fetch('http://localhost:5000/user/showAllOrders?email=' + (loggedInUser.email || email), {
+        fetch('https://nameless-crag-62193.herokuapp.com/user/showAllOrders?email=' + (loggedInUser.email || email), {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ const UserOrder = (props) => {
     //showing users posted reviews by email
     const [review, setReview] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/user/showReview?email=' + (loggedInUser.email || email))
+        fetch('https://nameless-crag-62193.herokuapp.com/user/showReview?email=' + (loggedInUser.email || email))
             .then(res => res.json())
             .then(data => setReview(data));
     }, [review]);
@@ -104,7 +104,7 @@ const UserOrder = (props) => {
     //deleting order of user
     const handleDelete = (id) => {
         // console.log('deleted', id);
-        fetch(`http://localhost:5000/user/deleteOrder/${id}`, {
+        fetch(`https://nameless-crag-62193.herokuapp.com/user/deleteOrder/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -115,7 +115,7 @@ const UserOrder = (props) => {
 
     //deleting review from user id
     const handleDeleteReview = (id) => {
-        fetch(`http://localhost:5000/user/deleteReview/${id}`, {
+        fetch(`https://nameless-crag-62193.herokuapp.com/user/deleteReview/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

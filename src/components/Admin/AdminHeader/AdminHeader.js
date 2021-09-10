@@ -13,7 +13,7 @@ const AdminHeader = () => {
         sessionStorage.removeItem('adminName');
     }
     return (
-        <div className={`${styles.dashboard_nav} container-fluid mb-2`}>
+        <div className={`${styles.dashboard_nav} container-fluid`}>
             <div className="row">
                 <div className={`${styles.user_logo} col-md-1 offset-md-1 mt-4 text-center`}>
                     <Link to="/home">
@@ -21,7 +21,7 @@ const AdminHeader = () => {
                     </Link>
                 </div>
                 <div className="col-md-5 offset-md-5 mt-4">
-                    <div className={`${styles.welcome}`}>
+                    <div className={`${styles.welcome} text-center`}>
                         <h4 className={`${styles.name}`}>{(adminLoggedIn.adminName || sessionStorage.getItem('adminName'))}</h4>
                         <NavLink to="/adminLogin">
                             <button onClick={handleLogOut} className={styles.log_out_btn}><BiLogOut className={styles.log_out_icon}></BiLogOut>Log Out</button>

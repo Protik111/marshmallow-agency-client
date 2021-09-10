@@ -12,6 +12,8 @@ import styles from './AdminLogin.module.css';
 
 const AdminLogin = () => {
 
+    document.title='Admin - Login';
+
     //initializing firebase app
     if (firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig2);

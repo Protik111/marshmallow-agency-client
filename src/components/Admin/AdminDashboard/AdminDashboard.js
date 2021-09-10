@@ -3,6 +3,7 @@ import AdminHeader from '../AdminHeader/AdminHeader';
 import AdminManagement from '../AdminManagement/AdminManagement';
 
 const AdminDashboard = () => {
+    document.title= 'Admin - Dashboard';
     return (
         <div>
             <AdminHeader></AdminHeader>

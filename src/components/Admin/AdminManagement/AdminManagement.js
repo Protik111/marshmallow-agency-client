@@ -16,7 +16,7 @@ const AdminManagement = () => {
 
     const onSubmit = (data) => {
         // console.log(data);
-        fetch('http://localhost:5000/admin/makeService', {
+        fetch('https://nameless-crag-62193.herokuapp.com/admin/makeService', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -37,7 +37,7 @@ const AdminManagement = () => {
     const [services, setServices] = useState([])
     //showing all services in admin dashboard
     useEffect(() => {
-        fetch('http://localhost:5000/admin/showAllServices')
+        fetch('https://nameless-crag-62193.herokuapp.com/admin/showAllServices')
             .then(res => res.json())
             .then(data => {
                 setServices(data);
@@ -48,7 +48,7 @@ const AdminManagement = () => {
     const [reviews, setReviews] = useState([]);
     //showing all revies in admin dashboard
     useEffect(() => {
-        fetch('http://localhost:5000/user/showAllReviews')
+        fetch('https://nameless-crag-62193.herokuapp.com/user/showAllReviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, []);

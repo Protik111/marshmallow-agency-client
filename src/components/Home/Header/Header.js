@@ -13,7 +13,6 @@ const Header = () => {
             delay: 100,
         });
     }, []);
-    // console.log(process.env);
     return (
         <div className={`${styles.header} container-fluid p-5`} id="home">
             <div className="row">
