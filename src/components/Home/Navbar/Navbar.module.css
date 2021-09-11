@@ -101,6 +101,12 @@ nav .hamberger i{
     }
     .menu_check:checked ~ .hamberger i:before {
         content: "\f00d";
+        position: fixed;
+        color: red;
+        right: 10px;
+        cursor: pointer;
+        top: 20px;
+        z-index: 2;
     }
     .menu_check:checked ~ ul {
         left: 0;

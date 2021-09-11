@@ -3,6 +3,17 @@ import React, { useEffect, useState } from 'react';
 // import servicesDat from '../../Datas/ServicesData.json';
 import ServicesStyle from '../ServicesStyle/ServicesStyle';
 import styles from './Services.module.css';
+import { makeStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '100%',
+        '& > * + *': {
+            marginTop: theme.spacing(2),
+        },
+    },
+}));
 
 const Services = () => {
     //Inserting Bulk data by button
@@ -27,6 +38,8 @@ const Services = () => {
                 // console.log(service);
             })
     }, []);
+
+    const classes = useStyles();
     return (
         <div className="container-fluid" id="services">
             <div className="offset-md-1 offset-sm-1 mt-5 row">
@@ -36,6 +49,10 @@ const Services = () => {
                 {/* Inserting Bulk data
                 <button onClick={InsertBulkData}>Add Serice</button> */}
             </div>
+            {service.length === 0 && <div className={classes.root}>
+                <LinearProgress />
+                <LinearProgress color="secondary" />
+            </div>}
             <div className={`${styles.service_container} container row mt-5 mb-5`}>
                 {service.map((service) => <ServicesStyle service={service}></ServicesStyle>)}
             </div>
