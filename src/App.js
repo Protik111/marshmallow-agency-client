@@ -13,6 +13,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AdminPrivateRoute from './components/PrivateRoute/AdminPrivateRoute';
 import AdminDashboard from './components/Admin/AdminDashboard/AdminDashboard';
 import AdminLogin from './components/Login/Admin/AdminLogin';
+import NotFound from './components/NotFound/NotFound';
 
 export const UserContext = createContext();
 
@@ -40,6 +41,9 @@ function App() {
           </AdminPrivateRoute>
           <Route path="/adminLogin">
             <AdminLogin></AdminLogin>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
           </Route>
         </Switch>
       </Router>
