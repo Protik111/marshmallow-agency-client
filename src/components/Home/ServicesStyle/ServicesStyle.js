@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const ServicesStyle = (props) => {
     const { id, name, img, description } = props.service;
     return (
-        <div className="col-md-3 offset-md-1 mt-5">
+        <div className="col-lg-3 col-sm-12 col-md-5 offset-md-1 mt-5">
             <NavLink to={`/userDashboard/${id}`} className={styles.link_Style}>
                 <div className={`${styles.service_item} p-4 mt-5`}>
                     <img src={img} alt="" />

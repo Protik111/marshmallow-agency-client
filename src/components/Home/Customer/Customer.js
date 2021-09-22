@@ -41,7 +41,7 @@ const Customer = () => {
             .then(res => res.json())
             .then(data => setReviews(data))
         console.log('revies', reviews);
-    }, []);
+    }, [reviews]);
 
     useEffect(() => {
         AOS.init({ duration: 1000 });

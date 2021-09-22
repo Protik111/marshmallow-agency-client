@@ -12,12 +12,12 @@ const Contact = () => {
     return (
         <div className="container mt-5 mb-5">
             <div className="row">
-                <div data-aos="fade-right" className="col-md-5 mt-4">
+                <div data-aos="fade-right" className="col-lg-6 col-sm-12 col-md-6 mt-4 text-center">
                     <div>
                         <img src={contact} alt=""/>
                     </div>
                 </div>
-                <div data-aos="fade-left" className="col-md-6 mt-4">
+                <div data-aos="fade-left" className="col-lg-6 col-sm-12 col-md-6 mt-4">
                     <div className="text-center">
                         <h1>Got A Problem?</h1>
                         <h5 className="m-2">We are here to help you!</h5>
@@ -29,7 +29,7 @@ const Contact = () => {
                                     <input type="text" className={`${styles.form_input} py-3`} placeholder="Enter Your Name" id="name" required/>
                                     <label htmlFor="name" className={styles.form_label}>Name</label>
                                 </div>
-                                <div className={`${styles.form_group} offset-md-1`}>
+                                <div className={`${styles.form_group}`}>
                                     <input type="text" className={`${styles.form_input} py-3`} placeholder="Enter Email" id="email" required/>
                                     <label htmlFor="email" className={styles.form_label}>Email</label>
                                 </div>

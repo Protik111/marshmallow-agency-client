@@ -34,8 +34,21 @@
     background-color: #3C37F1;
     color: #fff;
 }
-
 @media (max-width: 768px) {
+    .contact_input{
+        flex-direction: column;
+        align-items: center;
+    }
+    .form_input_message{
+        width: 250px;
+        align-items: center;
+    }
+    /* .see_more button {
+        align-items: center;
+    } */
+}
+
+@media (max-width: 992px) {
     .contact_input{
         flex-direction: column;
         align-items: center;

@@ -13,7 +13,24 @@
     height: 120px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px){
+    .slider_item {
+        flex-direction: column;
+    }
+    .slider_img img{
+        border-radius: 15px;
+        width: 102px;
+        height: 100px;
+    }
+    .slider_img{
+        text-align: center;
+    }
+    .reviewName {
+        text-align: center;
+    }
+}
+
+@media (max-width: 992px){
     .slider_item {
         flex-direction: column;
     }

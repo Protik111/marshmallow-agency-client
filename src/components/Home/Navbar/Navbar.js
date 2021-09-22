@@ -22,7 +22,7 @@ const Navbar = () => {
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#plans">Plans</a></li>
                     <NavLink to="/adminDashboard" className={styles.adminBtn}>
-                        <li><a className={styles.admin_btn} href="">Admin</a></li>
+                        <li><a className={styles.admin_btn} href="#admin">Admin</a></li>
                     </NavLink>
                 </ul>
             </nav>
