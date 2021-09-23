@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Marshmallow Agency
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It is an agency website, which serves some services like **Saving Strategy, Design And Development, Integrated Marketing, Digital Strategy** etc.
+In this website, two types of people can log in or sign up here. One is admin and another is user. One cannot go to the dashboard page without login. After login user/admin can see his/her dashboard.
+All the facilities of this web application are listed here:
 
-## Available Scripts
+- User can sign up/login with email and password and google sign in alternatively.
+- User can see his/her dashboard on a bar chart after login.
+- User can make a order.
+- User can post a review.
+- User can see his/her all orders and can delete also.
+- User can submit a review about a service, which are shown on the homepage.
+- User can see his/her all review and can delete also.
+- User can see some work's demo by marshmallow agency in auto slider on homepage.
 
-In the project directory, you can run:
+- Anyone can sign in as a admin for testing purpose.
+- Admin can see all order lists of the users.
+- Admin can see all reviews lists posted by the user.
+- Admin can add more services.
 
-### `npm start`
+## Frond-end Technology: 
+- HTML5
+- CSS3
+- Bootstrap4
+- React Js
+- Firebase
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Back-end Technology:
+- MongoDB
+- Node Js
+- Express Js
+- Mongoose
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Live Link: (https://marshmallow-agency.web.app/)
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+You can visit server repository [Marshmallow Agency Server](https://github.com/Protik111/marshmallow-agency-server)
